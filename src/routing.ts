@@ -33,7 +33,7 @@ export default async function callAPI(request: Request): Promise<Result> {
       message: 'Bad request' 
     };
   }
-  const handler = Object.entries(routeMap).find(route => path.includes(route));
+  const handler = Object.entries(routeMap).find(([route]) => path.includes(route))?.[1];
   if (!handler) {
     return {
       success: false,
